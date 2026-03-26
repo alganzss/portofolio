@@ -130,8 +130,10 @@
   }
 }
 
-/**
- * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+/* 
+ * Base typography — NOT applied to elements that already have a Tailwind text class
+ * IMPORTANT: font-family is intentionally excluded here so inline styles 
+ * (e.g. Press Start 2P) are not overridden by this base layer.
  */
 @layer base {
   :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
@@ -187,4 +189,9 @@
 
 html {
   font-size: var(--font-size);
+}
+
+/* Ensure Press Start 2P font loads properly */
+.font-minecraft {
+  font-family: 'Press Start 2P', cursive !important;
 }
